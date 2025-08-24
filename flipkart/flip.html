@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <title>Flipkart Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that can't be easily done with Tailwind */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .search-box {
+            width: 500px;
+        }
+        
+        .carousel-item {
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .search-box {
+                width: 100%;
+            }
+            
+            .nav-items {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-yellow-400 text-3xl font-bold mr-2">Flipkart</div>
+                    <div class="text-xs italic text-gray-600 hidden md:block">
+                        <span class="text-yellow-400">Plus</span>
+                        <span class="text-blue-500">Learn More</span>
+                    </div>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative mx-4 flex-grow max-w-xl">
+                    <div class="flex search-box">
+                        <input type="text" placeholder="Search for products, brands and more" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Login Button -->
+                <div class="hidden md:block">
+                    <button class="bg-white text-blue-500 font-medium px-4 py-2 rounded-md hover:bg-white-160">
+                        Login
+                    </button>
+                </div>
+                
+                <!-- More Options -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-blue-500 flex items-center">
+                            More <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Notification Preferences</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">24x7 Customer Care</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Advertise</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Download App</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center text-gray-700 hover:text-blue-500">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="ml-1">Cart</span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 text-xl mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Categories -->
+    <div class="bg-gray-200 shadow-sm">
+        <div class="container mx-auto px-4 py-3 overflow-x-auto">
+            <div class="flex space-x-14">
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Grocery</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Mobiles</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Fashion</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Electronics</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg" class="w-12 h-12">
+                    <span class="text-xs mt-1">Home</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Appliances</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/71050627a56b4693.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Travel</span>
+                </a>
+                <a href="#" class="flex flex-col items-center min-w-max">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png" class="w-12 h-12">
+                    <span class="text-xs mt-1">Beauty</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Carousel -->
+    <div class="bg-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="relative overflow-hidden rounded-md h-64 bg-gradient-to-r from-blue-500 to-purple-600">
+                <div class="absolute inset-0 flex items-center justify-center text-white">
+                    <div class="text-center px-8">
+                        <h1 class="text-4xl font-bold mb-4">The Big Billion Days</h1>
+                        <p class="text-xl mb-6">Up to 70% Off on all products</p>
+                        <button class="bg-white text-blue-600 font-bold px-6 py-2 rounded-md hover:bg-gray-100">
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Deals of the Day -->
+    <div class="bg-white py-6 mt-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">Deals of the Day</h2>
+                <button class="text-blue-500 font-medium flex items-center">
+                    View All <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Product Card 1 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="images/iphone14.avif" 
+                         alt="iPhone 14" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">APPLE iPhone 14 (Blue, 128 GB)</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹58,999</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹69,900</span>
+                            <span class="text-xs text-green-600 ml-2">15-% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="images/samsungtv.png" 
+                         alt="Samsung TV" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">Samsung 80 cm (32 inch) HD Ready LED Smart TV</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹14,999</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹19,900</span>
+                            <span class="text-xs text-green-600 ml-2">24% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="images/pumashoe.jpg" 
+                         alt="Puma Shoes" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">PUMA Unisex-Child Black Running Shoes</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹1,299</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹1,999</span>
+                            <span class="text-xs text-green-600 ml-2">35% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 4 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="images/boatheadset.webp" 
+                         alt="Boat Headphones" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">boAt Rockerz 450 Bluetooth Headset</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹1,299</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹1,999</span>
+                            <span class="text-xs text-green-600 ml-2">35% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 5 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="images/lg washing.jpg" 
+                         alt="LG Washing Machine" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">LG 7 kg 5 Star Inverter Fully Automatic Front Load</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹32,490</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹39,990</span>
+                            <span class="text-xs text-green-600 ml-2">18% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 6 -->
+                <div class="product-card bg-white rounded-md shadow-sm p-4 transition duration-300">
+                    <img src="/images/voltas.webp" 
+                         alt="Voltas AC" class="w-full h-40 object-contain">
+                    <div class="mt-3">
+                        <h3 class="text-sm font-medium truncate">Voltas 1.5 Ton 3 Star Inverter Split AC</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="text-sm font-bold">₹32,990</span>
+                            <span class="text-xs text-gray-500 line-through ml-2">₹39,990</span>
+                            <span class="text-xs text-green-600 ml-2">17% off</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Free delivery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top Offers -->
+    <div class="bg-white py-6 mt-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">Top Offers</h2>
+                <button class="text-blue-500 font-medium flex items-center">
+                    View All <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Offer 1 -->
+                <div class="bg-gradient-to-r from-yellow-100 to-yellow-50 rounded-md p-4 flex items-center">
+                    <img src="https://rukminim1.flixcart.com/flap/64/64/image/c12afc017e6f24cb.png" 
+                         alt="Offer" class="w-16 h-16">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Minimum 60% Off</h3>
+                        <p class="text-xs text-gray-600">On Fashion</p>
+                    </div>
+                </div>
+                
+                <!-- Offer 2 -->
+                <div class="bg-gradient-to-r from-blue-100 to-blue-50 rounded-md p-4 flex items-center">
+                    <img src="https://rukminim1.flixcart.com/flap/64/64/image/0ff199d1bd27eb98.png" 
+                         alt="Offer" class="w-16 h-16">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Up to 70% Off</h3>
+                        <p class="text-xs text-gray-600">On Appliances</p>
+                    </div>
+                </div>
+                
+                <!-- Offer 3 -->
+                <div class="bg-gradient-to-r from-green-100 to-green-50 rounded-md p-4 flex items-center">
+                    <img src="https://rukminim1.flixcart.com/flap/64/64/image/29327f40e9c4d26b.png" 
+                         alt="Offer" class="w-16 h-16">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Minimum 50% Off</h3>
+                        <p class="text-xs text-gray-600">On Grocery</p>
+                    </div>
+                </div>
+                
+                <!-- Offer 4 -->
+                <div class="bg-gradient-to-r from-purple-100 to-purple-50 rounded-md p-4 flex items-center">
+                    <img src="https://rukminim1.flixcart.com/flap/64/64/image/22fddf3c7da4c4f4.png" 
+                         alt="Offer" class="w-16 h-16">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Up to 80% Off</h3>
+                        <p class="text-xs text-gray-600">On Mobiles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-8">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="font-bold mb-4">ABOUT</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Flipkart Stories</a></li>
+                        <li><a href="#" class="hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="font-bold mb-4">HELP</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Payments</a></li>
+                        <li><a href="#" class="hover:text-white">Shipping</a></li>
+                        <li><a href="#" class="hover:text-white">Cancellation & Returns</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Report Infringement</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="font-bold mb-4">CONSUMER POLICY</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Return Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms Of Use</a></li>
+                        <li><a href="#" class="hover:text-white">Security</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white">Sitemap</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="font-bold mb-4">SOCIAL</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white">YouTube</a></li>
+                        <li><a href="#" class="hover:text-white">Instagram</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 5 -->
+                <div class="col-span-2">
+                    <h3 class="font-bold mb-4">Mail Us</h3>
+                    <address class="text-sm text-gray-400 not-italic">
+                        Flipkart Internet Private Limited,<br>
+                        Buildings Alyssa, Begonia &<br>
+                        Clove Embassy Tech Village,<br>
+                        Outer Ring Road, Devarabeesanahalli Village,<br>
+                        Bengaluru, 560103,<br>
+                        Karnataka, India
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Sell On Flipkart</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Advertise</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Gift Cards</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Help Center</a>
+                </div>
+                
+                <div class="text-sm text-gray-400">
+                    &copy; 2007-2023 Flipkart.com
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            // In a real implementation, this would toggle a mobile menu
+            alert('Mobile menu would open here');
+        });
+        
+        // Simple carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+        }
+        
+        // In a full implementation, we would have actual carousel functionality
+        // This is just a placeholder
+        
+        // Product hover effect
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
