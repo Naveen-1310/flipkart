@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart - Online Shopping</title>
+    <link rel="icon" href="images/flipicon.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Flipkart Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products, brands and more">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Become a Seller</a></li>
+                <li><a href="#">More <i class="fa fa-caret-down"></i></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+
+        <section class="product-categories">
+            <!-- Categories will go here -->
+        </section>
+
+        <section class="product-listings">
+            <h2>Deals of the Day</h2>
+            <div class="products-grid">
+                <!-- Product cards will go here -->
+            </div>
+        </section>
+
+        <section class="special-deals">
+            <h2>Special Deals</h2>
+            <div class="deals-grid">
+                <!-- Special deal cards will go here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Flipkart. All rights reserved.</p>
+    </footer>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-button">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <p>Total: ₹<span id="cart-total">0</span></p>
+            <button class="checkout-button">Checkout</button>
+            <button class="empty-cart-button">Empty Cart</button>
+        </div>
+    </div>
+    <div id="message-container" class="message-container"></div>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
